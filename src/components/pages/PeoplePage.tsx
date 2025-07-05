@@ -60,7 +60,9 @@ export const PeoplePage = () => {
 
     if (centuriesFilter.length > 0) {
       result = result.filter(person => {
-        const personCentury = Math.ceil(person.born / 100).toString();
+        const personCentury = (
+          Math.floor((person.born - 1) / 100) + 1
+        ).toString();
 
         return centuriesFilter.includes(personCentury);
       });
